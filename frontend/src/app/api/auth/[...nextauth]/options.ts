@@ -19,7 +19,7 @@ export interface CustomUser {
 }
 export const authOptions: AuthOptions = {
   pages: {
-    signIn: "/",
+    signIn: "/dashboard",
   },
   callbacks: {
     async signIn({
