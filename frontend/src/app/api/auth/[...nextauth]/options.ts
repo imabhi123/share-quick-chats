@@ -2,7 +2,7 @@ import { Account, AuthOptions, ISODateString, User } from "next-auth";
 import { JWT } from "next-auth/jwt";
 import GoogleProvider from "next-auth/providers/google";
 import axios, { AxiosError } from "axios";
-// import { LOGIN_URL } from "@/lib/apiAuthRoutes";
+import { LOGIN_URL } from "@/lib/apiAuthRoutes";
 import { redirect } from "next/navigation";
 
 export interface CustomSession {
@@ -37,7 +37,9 @@ export const authOptions: AuthOptions = {
           provider: account?.provider!,
           image: user?.image,
         };
-        const { data } = await axios.post('LOGIN_URL', payload);
+        console.log(payload,LOGIN_URL)
+        const { data } = await axios.post(LOGIN_URL, payload);
+        console.log(data)
 
         user.id = data?.user?.id?.toString();
         user.token = data?.user?.token;

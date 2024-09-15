@@ -12,6 +12,7 @@ import { signIn } from "next-auth/react";
 import { DialogDescription } from "@radix-ui/react-dialog";
 
 const handleGoogleLogin = async () => {
+  console.log('abhishek')
   signIn("google", {
     redirect: true,
     callbackUrl: "/",
